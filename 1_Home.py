@@ -2,6 +2,7 @@ import streamlit as st
 import webbrowser
 import pandas as pd
 from datetime import datetime
+import openai
 
 if "data" not in st.session_state:
     df_data = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col=0)
@@ -13,10 +14,13 @@ if "data" not in st.session_state:
 st.markdown("# FIFA23 OFICIAL DATABASE")
 st.sidebar.markdown("Desenvolvido por Stilgar")
 
-btn = st.button("Acesse os dados Kaggle")
-if btn:
-    webbrowser.open_new_tab("https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset?select=players_23.csv")
-    st.balloons()
+btn = st.link_button(
+        "Acessar Dataset Completo no Kaggle",
+        "https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset?select=players_23.csv"
+        )
+
+
+
 
 st.markdown(
     """
